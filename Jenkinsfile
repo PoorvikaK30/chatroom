@@ -11,7 +11,7 @@ pipeline{
                 git 'https://github.com/PoorvikaK30/chatroom.git'
             }
         }
-        stage('test'){
+        stage('compile'){
             steps{
                 sh 'mvn clean compile'
             }
