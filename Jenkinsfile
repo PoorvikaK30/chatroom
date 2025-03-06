@@ -9,7 +9,7 @@ pipeline{
 
         stage('clean workspace'){
             steps{
-                cleanWx()
+                cleanWs()
             }
         }
         stage('clone'){
