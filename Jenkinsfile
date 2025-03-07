@@ -6,7 +6,7 @@ pipeline{
     }
 
     environment{
-        SONARQUBE_HOME = tool 'sonarqube-scanner' 
+        SONARQUBE_HOME = tool 'sonarqube-server' 
     }
     stages{
         stage ('clean workspace'){
