@@ -6,8 +6,9 @@ pipeline{
     }
 
     environment{
-        SONARQUBE_HOME = tool 'sonarqube-server' 
+        SONARQUBE_HOME = tool 'sonarqube-scanner' 
     }
+
     stages{
         stage ('clean workspace'){
             steps{
@@ -16,7 +17,7 @@ pipeline{
         }
         stage('clone'){
             steps{
-                git 'https://github.com/VootlaSaiCharan/chatroom.git'
+                git 'https://github.com/PoorvikaK30/chatroom.git'
             }
         }
         stage('compile'){
@@ -34,7 +35,7 @@ pipeline{
                 sh 'trivy fs --format table  -o fs.html .' 
             }
         }
-         stage('sonarqube analasis'){
+        stage('sonarqube analasis'){
             steps{
                 withSonarQubeEnv('sonarqube-server'){
                     sh ''' $SONARQUBE_HOME/bin/sonar-scanner -Dsonar.projectKey=chatroom \
